@@ -19,6 +19,7 @@ function Lists({ contact }) {
     return (
         <div>
             <Input id='first-name' placeholder='Filter' m="2" onChange={(e) => setFilterText(e.target.value)} name="userName" value={filterText} />
+
             <UnorderedList>
                 {filtered.map((item, key) => (
                     <ListItem key={key}>{item.userName}:{item.phoneNumber}</ListItem>
@@ -27,6 +28,7 @@ function Lists({ contact }) {
 
 
             </UnorderedList>
+            {contact.length}
         </div>
     )
 }
