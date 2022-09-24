@@ -4,8 +4,9 @@ import {
     ListItem,
     ListIcon,
     OrderedList,
-    UnorderedList, Input
+    UnorderedList, Input, Text, Box
 } from '@chakra-ui/react'
+import { PhoneIcon, ChatIcon } from '@chakra-ui/icons'
 
 function Lists({ contact }) {
     const [filterText, setFilterText] = useState("");
@@ -22,13 +23,21 @@ function Lists({ contact }) {
 
             <UnorderedList>
                 {filtered.map((item, key) => (
-                    <ListItem key={key}>{item.userName}:{item.phoneNumber}</ListItem>
+                    <ListItem display="flex" justifyContent="space-around" key={key}>
+                        <Text fontSize='md' fontWeight="600">{item.userName}</Text>
+                        <Box w="50px" display="flex" justifyContent="space-around" >
+                            <PhoneIcon background="#ffff" color="green" />
+                            <ChatIcon />
+                        </Box>
+
+                    </ListItem>
 
                 ))}
 
 
             </UnorderedList>
-            {contact.length}
+            <Box>Kisi Listeniz: {contact.length}</Box>
+
         </div>
     )
 }
